@@ -24,6 +24,13 @@ use App\Http\Controllers\Admin\ReturnPolicyController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SocialLinkController;
 use App\Http\Controllers\Admin\SystemController;
+use App\Http\Controllers\Admin\AuthController;
+
+Route::controller(AuthController::class)->group(function () {
+
+    Route::get('/','loginAdmin')->name('loginAdmin');
+    Route::get('/registrationAdmin','registrationAdmin')->name('registrationAdmin');
+});
 
 Route::controller(SystemController::class)->group(function () {
 
@@ -48,9 +55,9 @@ Route::resource('systemInfo', SystemController::class);
 });
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
