@@ -10,9 +10,22 @@
       </li><!-- End Dashboard Nav -->
 
 
+      <li class="nav-heading">Website</li>
+
+      <li class="nav-item ">
+        <a class="nav-link   {{ Route::is('bannerList.index')  ? '' : 'collapsed' }}" href="{{ route('bannerList.index') }}">
+          <i class="bi bi-image"></i>
+          <span>Banner List</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
 
 
-
+      <li class="nav-item ">
+        <a class="nav-link   {{ Route::is('deliveryChargeList.index')  ? '' : 'collapsed' }}" href="{{ route('deliveryChargeList.index') }}">
+          <i class="bx bx-money"></i>
+          <span>Delivery Charge</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
 
 
 

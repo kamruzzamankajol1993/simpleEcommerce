@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('websiteEmail')->nullable();
             $table->text('websiteAbout')->nullable();
             $table->text('websiteAddress')->nullable();
+            $table->text('url_name')->nullable();
             $table->timestamps();
         });
     }
