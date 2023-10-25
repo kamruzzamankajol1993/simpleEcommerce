@@ -26,6 +26,15 @@ use App\Http\Controllers\Admin\SocialLinkController;
 use App\Http\Controllers\Admin\SystemController;
 use App\Http\Controllers\Admin\AuthController;
 
+Route::get('/clear', function() {
+    \Illuminate\Support\Facades\Artisan::call('cache:clear');
+    \Illuminate\Support\Facades\Artisan::call('config:clear');
+    \Illuminate\Support\Facades\Artisan::call('config:cache');
+    \Illuminate\Support\Facades\Artisan::call('view:clear');
+    \Illuminate\Support\Facades\Artisan::call('route:clear');
+    return redirect()->back();
+});
+
 Route::controller(AuthController::class)->group(function () {
 
     Route::get('/','loginAdmin')->name('loginAdmin');
@@ -37,11 +46,16 @@ Route::controller(SystemController::class)->group(function () {
 
 });
 
+Route::controller(OrderController::class)->group(function () {
+    Route::get('/printData/{id}','printData')->name('printData');
+
+});
+
 
 Route::group(['prefix' => 'admin'], function () {
 
 Route::resource('bannerList', BannerController::class);
-Route::resource('contactInfoList', ContactController::class);
+Route::resource('messageList', ContactController::class);
 Route::resource('deliveryChargeList', DeliveryChargeController::class);
 Route::resource('orderList', OrderController::class);
 Route::resource('packageCombo', PackageComboController::class);

@@ -11,19 +11,7 @@ class DeliveryChargeController extends Controller
     public function index(){
 
 
-        // if ($request->hasfile('big_image')) {
-
-        //     $productImage = $request->file('big_image');
-        //       $imageName = time().$productImage->getClientOriginalName();
-        //       $directory = 'public/uploads/';
-        //       $imageUrl = $directory.$imageName;
-
-        //       $img=Image::make($productImage)->resize(1800,1006);
-        //       $img->save($imageUrl);
-
-        //        $category->big_image =  'public/uploads/'.$imageName;
-
-        //   }
+     
 
         $allSystemInfo = DeliveryCharge::latest()->get();
 
